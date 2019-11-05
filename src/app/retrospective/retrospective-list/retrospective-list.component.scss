@@ -9,3 +9,20 @@
 .well {
     color: #1dc9b7;
 }
+
+.bd-callout {
+    border-left-width: .25rem;
+    border-radius: .25rem;
+}
+
+.bd-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bd-callout-info {
+    border-left-color: #5bc0de;
+}
+
+.bd-callout-danger {
+    border-left-color: #d9534f;
+}
