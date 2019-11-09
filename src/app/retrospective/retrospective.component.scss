@@ -17,7 +17,7 @@
       }
       &.active {
         background: darken(#f5f9fd, 3%);
-        img, p {
+        img, p, i {
           opacity: 1;
         }
       }
@@ -26,7 +26,7 @@
         margin: 0 25px 0 0;
         width: 35px;
       }
-      p {
+      p, i {
         opacity: .6;
         margin: 0;
         font-size: 15px;
