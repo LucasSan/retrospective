@@ -1,0 +1,216 @@
+[debug] [2019-11-09T19:06:03.350Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:06:03.353Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-09T19:06:03.353Z] CLI Version:   7.7.0
+[debug] [2019-11-09T19:06:03.353Z] Platform:      win32
+[debug] [2019-11-09T19:06:03.353Z] Node Version:  v8.10.0
+[debug] [2019-11-09T19:06:03.354Z] Time:          Sat Nov 09 2019 17:06:03 GMT-0200 (Horário brasileiro de verão)
+[debug] [2019-11-09T19:06:03.354Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:06:03.354Z] 
+[debug] [2019-11-09T19:06:03.363Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-09T19:06:03.364Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Programacao\retrospective
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-09T19:06:11.721Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-09T19:06:11.721Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-09T19:06:11.980Z] <<< HTTP RESPONSE 400
+[debug] [2019-11-09T19:06:11.981Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-11-09T19:06:13.143Z] <<< HTTP RESPONSE 401
+[debug] [2019-11-09T19:06:13.143Z] <<< HTTP RESPONSE BODY
+[debug] [2019-11-09T19:06:13.144Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2019-11-09T19:06:13.363Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2019-11-09T19:15:43.401Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:15:43.404Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-09T19:15:43.404Z] CLI Version:   7.7.0
+[debug] [2019-11-09T19:15:43.404Z] Platform:      win32
+[debug] [2019-11-09T19:15:43.404Z] Node Version:  v8.10.0
+[debug] [2019-11-09T19:15:43.405Z] Time:          Sat Nov 09 2019 17:15:43 GMT-0200 (Horário brasileiro de verão)
+[debug] [2019-11-09T19:15:43.405Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:15:43.405Z] 
+[debug] [2019-11-09T19:15:43.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-09T19:15:43.414Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Programacao\retrospective
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-09T19:15:49.678Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-09T19:15:49.679Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-09T19:15:49.942Z] <<< HTTP RESPONSE 400
+[debug] [2019-11-09T19:15:49.943Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-11-09T19:15:50.531Z] <<< HTTP RESPONSE 401
+[debug] [2019-11-09T19:15:50.531Z] <<< HTTP RESPONSE BODY
+[debug] [2019-11-09T19:15:50.532Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2019-11-09T19:15:50.810Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2019-11-09T19:16:25.647Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:16:25.649Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-09T19:16:25.649Z] CLI Version:   7.7.0
+[debug] [2019-11-09T19:16:25.649Z] Platform:      win32
+[debug] [2019-11-09T19:16:25.650Z] Node Version:  v8.10.0
+[debug] [2019-11-09T19:16:25.650Z] Time:          Sat Nov 09 2019 17:16:25 GMT-0200 (Horário brasileiro de verão)
+[debug] [2019-11-09T19:16:25.650Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:16:25.650Z] 
+[debug] [2019-11-09T19:16:25.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-09T19:16:25.659Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Programacao\retrospective
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-09T19:16:29.293Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-09T19:16:29.294Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-09T19:16:29.540Z] <<< HTTP RESPONSE 400
+[debug] [2019-11-09T19:16:29.542Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-11-09T19:16:29.898Z] <<< HTTP RESPONSE 401
+[debug] [2019-11-09T19:16:29.899Z] <<< HTTP RESPONSE BODY
+[debug] [2019-11-09T19:16:29.900Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2019-11-09T19:16:30.153Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.
+[debug] [2019-11-09T19:18:42.004Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:18:42.006Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-09T19:18:42.007Z] CLI Version:   7.7.0
+[debug] [2019-11-09T19:18:42.007Z] Platform:      win32
+[debug] [2019-11-09T19:18:42.007Z] Node Version:  v8.10.0
+[debug] [2019-11-09T19:18:42.008Z] Time:          Sat Nov 09 2019 17:18:42 GMT-0200 (Horário brasileiro de verão)
+[debug] [2019-11-09T19:18:42.008Z] ----------------------------------------------------------------------
+[debug] [2019-11-09T19:18:42.008Z] 
+[debug] [2019-11-09T19:18:42.015Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-09T19:18:42.016Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Programacao\retrospective
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-11-09T19:18:44.622Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-11-09T19:18:44.622Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-11-09T19:18:44.891Z] <<< HTTP RESPONSE 400
+[debug] [2019-11-09T19:18:44.893Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-11-09T19:18:46.055Z] <<< HTTP RESPONSE 401
+[debug] [2019-11-09T19:18:46.055Z] <<< HTTP RESPONSE BODY
+[debug] [2019-11-09T19:18:46.058Z] HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+[debug] [2019-11-09T19:18:46.331Z] FirebaseError: HTTP Error: 401, Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
+    at module.exports (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Request._callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\lib\api.js:39:35)
+    at Request.self.callback (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:185:22)
+    at emitTwo (events.js:126:13)
+    at Request.emit (events.js:214:7)
+    at Request.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1161:10)
+    at emitOne (events.js:116:13)
+    at Request.emit (events.js:211:7)
+    at IncomingMessage.<anonymous> (C:\Users\lucas\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\request\request.js:1083:12)
+    at Object.onceWrapper (events.js:313:30)
+[error] 
+[error] Error: Failed to list Firebase projects. See firebase-debug.log for more info.

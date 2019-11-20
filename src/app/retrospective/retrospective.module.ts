@@ -5,6 +5,8 @@ import { RetrospectiveComponent } from './retrospective.component';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RetrospectiveRoutingModule } from './retrospective.routing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RetrospectiveService } from './shared/retrospective.service';
 
 @NgModule({
   declarations: [RetrospectiveListComponent, RetrospectiveComponent],
@@ -12,7 +14,10 @@ import { RetrospectiveRoutingModule } from './retrospective.routing';
     RouterModule,
     HttpClientModule,
     RetrospectiveRoutingModule,
-    CommonModule
-  ]
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
+  providers: [RetrospectiveService]
 })
 export class RetrospectiveModule { }
