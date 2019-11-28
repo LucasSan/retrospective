@@ -1,28 +1,23 @@
-<div class="row">
+<div class="row" *ngIf="model && model.length > 0">
   <div class="col-sm">
     <label class="improvement mb-4">What could be improved</label>
-    <div class="card w-100 bd-callout bd-callout-danger">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm">
-    <label class="neutral mb-4">Neutral</label>
-    <div class="card w-100 bd-callout bd-callout-warning">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div *ngFor="let item of model">
+      <div class="card w-100 bd-callout bd-callout-danger mt-2" *ngIf="item.type === 'To Improve'">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.message }}</p>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-sm">
     <label class="well mb-4">What went well</label>
-    <div class="card w-100 bd-callout bd-callout-info">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <div *ngFor="let item of model">
+      <div class="card w-100 bd-callout bd-callout-info mt-2" *ngIf="item.type === 'Went Well'">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.message }}</p>
+        </div>
       </div>
     </div>
   </div>
