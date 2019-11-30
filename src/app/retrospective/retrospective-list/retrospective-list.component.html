@@ -21,4 +21,15 @@
       </div>
     </div>
   </div>
+  <div class="col-sm">
+    <label class="actions mb-4">Actions</label>
+    <div *ngFor="let item of model">
+      <div class="card w-100 bd-callout bd-callout-actions mt-2" *ngIf="item.type === 'Actions'">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.title }}</h5>
+          <p class="card-text">{{ item.message }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

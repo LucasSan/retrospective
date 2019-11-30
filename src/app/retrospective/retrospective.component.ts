@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RetrospectiveService } from './shared/retrospective.service';
 import { first } from 'rxjs/operators';
@@ -10,9 +10,9 @@ import { Cards } from './shared/model/retrospective.model';
 })
 export class RetrospectiveComponent implements OnInit {
     cardFormGroup: FormGroup;
-    selectors = ['To Improve', 'Went Well'];
-    value: string;
+    selectors = ['To Improve', 'Went Well', 'Actions'];
     model = new Cards();
+    @ViewChild('retrospectiveModal') retrospectiveModal: ElementRef;
 
     constructor(private retrospectiveService: RetrospectiveService) {
     }
@@ -24,8 +24,9 @@ export class RetrospectiveComponent implements OnInit {
 
     createForm(): void {
         this.cardFormGroup = new FormGroup({
-            title: new FormControl('', Validators.required),
-            message: new FormControl('', Validators.required)
+            type: new FormControl('', Validators.required),
+            title: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+            message: new FormControl('', [Validators.required, Validators.maxLength(280)])
         });
     }
 
@@ -39,17 +40,26 @@ export class RetrospectiveComponent implements OnInit {
     }
 
     saveCard(): void {
-        this.retrospectiveService.saveCard({
-            ...this.cardFormGroup.value,
-            type: this.value
-        })
-        .pipe(first())
-        .subscribe(data => {
-            this.listCards();
-        });
+        if (this.cardFormGroup.valid) {
+            this.retrospectiveService.saveCard({
+                ...this.cardFormGroup.value
+            })
+            .pipe(first())
+            .subscribe(() => {
+                this.listCards();
+            });
+        }
     }
 
     setSelected(value: string): void {
-        this.value = value;
+        this.cardFormGroup.controls.type.setValue(value);
+    }
+
+    openModal() {
+        this.retrospectiveModal.nativeElement.className = 'modal fade show';
+    }
+
+    closeModal() {
+        this.retrospectiveModal.nativeElement.className = 'modal hide';
     }
 }

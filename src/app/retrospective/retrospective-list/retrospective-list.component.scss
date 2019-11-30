@@ -4,8 +4,8 @@
     width: 100%;
 }
 
-.neutral {
-    color: #ffb822;
+.actions {
+    color: #343a40;
     font-weight: 500;
     width: 100%;
 }
@@ -31,4 +31,8 @@
 
 .bd-callout-danger {
     border-left-color: #d9534f;
+}
+
+.bd-callout-actions {
+    border-left-color: #6c757d;
 }
