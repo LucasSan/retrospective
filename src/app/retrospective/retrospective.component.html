@@ -4,7 +4,7 @@
         <button type="button" class="btn btn-outline-primary float-right mr-3">Filter</button>
     </div>
     <div class="pt-5">
-        <app-retrospective-list [model]="model"></app-retrospective-list>
+        <app-retrospective-list [model]="model" (editItem)="editItem($event)"></app-retrospective-list>
     </div>
 </div>
 

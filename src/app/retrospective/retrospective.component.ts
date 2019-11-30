@@ -55,6 +55,10 @@ export class RetrospectiveComponent implements OnInit {
         this.cardFormGroup.controls.type.setValue(value);
     }
 
+    editItem(item: Cards) {
+        console.log('item: ', item);
+    }
+
     openModal() {
         this.retrospectiveModal.nativeElement.className = 'modal fade show';
     }

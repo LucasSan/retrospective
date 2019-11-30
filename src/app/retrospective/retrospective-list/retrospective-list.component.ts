@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Cards } from '../shared/model/retrospective.model';
 
 @Component({
@@ -6,16 +6,17 @@ import { Cards } from '../shared/model/retrospective.model';
   templateUrl: './retrospective-list.component.html',
   styleUrls: ['./retrospective-list.component.scss']
 })
-export class RetrospectiveListComponent implements OnInit, OnChanges {
+export class RetrospectiveListComponent implements OnChanges {
 
   @Input() model: Cards;
+  @Output() editItem: EventEmitter<Cards> = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnChanges() {
   }
 
-  ngOnChanges() {
-    console.log('teste 2: ', this.model);
+  editCard(item: Cards): void {
+    this.editItem.emit(item);
   }
 }
