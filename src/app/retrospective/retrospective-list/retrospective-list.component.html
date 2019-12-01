@@ -6,9 +6,12 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.message }}</p>
+          <p class="card-text">
+            <small class="text-muted">Last updated {{ item.created }}</small>
+          </p>
         </div>
         <div class="card-footer bg-transparent">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <a (click)="deleteCard(item)" class="card-link float-left">Delete</a>
           <a (click)="editCard(item)" class="card-link float-right">Edit</a>
         </div>
       </div>
@@ -21,9 +24,12 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.message }}</p>
+          <p class="card-text">
+            <small class="text-muted">Last updated {{ item.created }}</small>
+          </p>
         </div>
         <div class="card-footer bg-transparent">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <a (click)="deleteCard(item)" class="card-link float-left">Delete</a>
           <a (click)="editCard(item)" class="card-link float-right">Edit</a>
         </div>
       </div>
@@ -36,9 +42,12 @@
         <div class="card-body">
           <h5 class="card-title">{{ item.title }}</h5>
           <p class="card-text">{{ item.message }}</p>
+          <p class="card-text">
+            <small class="text-muted">Last updated {{ item.created }}</small>
+          </p>
         </div>
         <div class="card-footer bg-transparent">
-          <small class="text-muted">Last updated 3 mins ago</small>
+          <a (click)="deleteCard(item)" class="card-link float-left">Delete</a>
           <a (click)="editCard(item)" class="card-link float-right">Edit</a>
         </div>
       </div>

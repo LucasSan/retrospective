@@ -10,6 +10,7 @@ export class RetrospectiveListComponent implements OnChanges {
 
   @Input() model: Cards;
   @Output() editItem: EventEmitter<Cards> = new EventEmitter();
+  @Output() deleteItem: EventEmitter<Cards> = new EventEmitter();
 
   constructor() { }
 
@@ -18,5 +19,9 @@ export class RetrospectiveListComponent implements OnChanges {
 
   editCard(item: Cards): void {
     this.editItem.emit(item);
+  }
+
+  deleteCard(item: Cards): void {
+    this.deleteItem.emit(item);
   }
 }

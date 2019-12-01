@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { RetrospectiveService } from './shared/retrospective.service';
 import { first } from 'rxjs/operators';
 import { Cards } from './shared/model/retrospective.model';
+import * as moment from 'moment';
 
 @Component({
     templateUrl: './retrospective.component.html',
@@ -11,8 +12,9 @@ import { Cards } from './shared/model/retrospective.model';
 export class RetrospectiveComponent implements OnInit {
     cardFormGroup: FormGroup;
     selectors = ['To Improve', 'Went Well', 'Actions'];
-    model = new Cards();
-    @ViewChild('retrospectiveModal') retrospectiveModal: ElementRef;
+    model = new Array<Cards>();
+    @ViewChild('closeModal') closeModalButton: ElementRef;
+    @ViewChild('openModalButton') openModalButton: ElementRef;
 
     constructor(private retrospectiveService: RetrospectiveService) {
     }
@@ -35,6 +37,7 @@ export class RetrospectiveComponent implements OnInit {
             .getCards()
             .pipe(first())
             .subscribe(data => {
+                data.forEach(item => item.created = moment(+item.created).fromNow());
                 this.model = data;
             });
     }
@@ -46,6 +49,7 @@ export class RetrospectiveComponent implements OnInit {
             })
             .pipe(first())
             .subscribe(() => {
+                this.closeModal();
                 this.listCards();
             });
         }
@@ -55,15 +59,30 @@ export class RetrospectiveComponent implements OnInit {
         this.cardFormGroup.controls.type.setValue(value);
     }
 
-    editItem(item: Cards) {
-        console.log('item: ', item);
+    editItem(item: Cards): void {
+        this.openModalButton.nativeElement.click();
+        this.openModal();
+
+        this.cardFormGroup.controls.type.setValue(item.type);
+        this.cardFormGroup.controls.title.setValue(item.title);
+        this.cardFormGroup.controls.message.setValue(item.message);
     }
 
-    openModal() {
-        this.retrospectiveModal.nativeElement.className = 'modal fade show';
+    deleteItem(item: Cards): void {
+        item.status = 'inactive';
+        this.retrospectiveService
+            .deleteCard(item)
+            .pipe(first())
+            .subscribe(data => {
+                this.listCards();
+            });
     }
 
-    closeModal() {
-        this.retrospectiveModal.nativeElement.className = 'modal hide';
+    openModal(): void {
+        this.createForm();
+    }
+
+    closeModal(): void {
+        this.closeModalButton.nativeElement.click();
     }
 }

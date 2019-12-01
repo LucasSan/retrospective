@@ -1,15 +1,15 @@
 <div class="pt-5">
     <div class="pb-5">
-        <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#retrospectiveModal">Create New Card</button>
+        <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#retrospectiveModal" #openModalButton (click)="openModal()">Create New Card</button>
         <button type="button" class="btn btn-outline-primary float-right mr-3">Filter</button>
     </div>
     <div class="pt-5">
-        <app-retrospective-list [model]="model" (editItem)="editItem($event)"></app-retrospective-list>
+        <app-retrospective-list [model]="model" (editItem)="editItem($event)" (deleteItem)="deleteItem($event)"></app-retrospective-list>
     </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" #retrospectiveModal id="retrospectiveModal" tabindex="-1" role="dialog" aria-labelledby="retrospectiveModalTitle"
+<div class="modal fade" id="retrospectiveModal" tabindex="-1" role="dialog" aria-labelledby="retrospectiveModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -70,7 +70,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" (click)="saveCard()" [disabled]="!cardFormGroup.valid">Save</button>
                 </div>
             </div>
