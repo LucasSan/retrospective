@@ -1,6 +1,7 @@
 <div class="pt-5">
     <div class="pb-5">
-        <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" data-target="#retrospectiveModal" #openModalButton (click)="openModal()">Create New Card</button>
+        <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" [attr.data-target]="'#' + modalCardsFormId" #openModalButton (click)="openModal()">Create New Card</button>
+        <button type="button" class="btn btn-outline-primary float-right mr-3" data-toggle="modal" [attr.data-target]="'#' + modalSprintFormId" (click)="openModal()">Create New Sprint</button>
         <button type="button" class="btn btn-outline-primary float-right mr-3">Filter</button>
     </div>
     <div class="pt-5">
@@ -8,71 +9,24 @@
     </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="retrospectiveModal" tabindex="-1" role="dialog" aria-labelledby="retrospectiveModalTitle"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="retrospectiveModalTitle">Create New Card</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form [formGroup]="cardFormGroup">
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Type:</label>
+<!-- Modal Card Form -->
+<app-modal 
+    [modalId]="modalCardsFormId"
+    [title]="modalTitle"
+    [isValid]="cardFormGroup.valid"
+    [close]="close"
+    [submitButtonText]="submitButtonText"
+    (submit)="saveCard()">
+    <app-card-form [cardFormGroup]="cardFormGroup"></app-card-form>    
+</app-modal>
 
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm" *ngFor="let selector of selectors">
-                                        <div class="workout-type">
-                                            <div 
-                                                class="workout-type__pane"
-                                                [class.active]="selector === cardFormGroup.controls.type.value"
-                                                (click)="setSelected(selector)">
-                                                <i class="fa mr-2"
-                                                    [ngClass]="{'fa-thumbs-down': selector === 'To Improve', 'fa-thumbs-up': selector === 'Went Well', 'fa-bolt': selector === 'Actions'}"></i>
-                                                <p>{{ selector }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Title:</label>
-                            <input 
-                                [ngClass]="{'is-valid': cardFormGroup.controls.title.valid, 
-                                'is-invalid': !cardFormGroup.controls.title.valid && cardFormGroup.controls.title.touched }"
-                                class="form-control" 
-                                id="title-text"
-                                formControlName="title"
-                                maxlength="20" required />
-                                <small id="passwordHelpBlock" class="form-text text-muted">
-                                    {{ this.cardFormGroup.controls.title.value.length }} of 20
-                                </small>
-                        </div>
-                        <div class="form-group">
-                            <label for="message-text" class="col-form-label">Message:</label>
-                            <textarea 
-                                [ngClass]="{'is-valid': cardFormGroup.controls.message.valid, 
-                                'is-invalid': !cardFormGroup.controls.message.valid && cardFormGroup.controls.message.touched }"
-                                class="form-control" 
-                                id="message-text"
-                                formControlName="message"
-                                maxlength="280" required></textarea>
-                                <small id="passwordHelpBlock" class="form-text text-muted">
-                                    {{ this.cardFormGroup.controls.message.value.length }} of 280
-                                </small>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button #closeModal type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" (click)="saveCard()" [disabled]="!cardFormGroup.valid">Save</button>
-                </div>
-            </div>
-    </div>
-</div>
+<!-- Modal Card Form -->
+<app-modal 
+    [modalId]="modalSprintFormId"
+    [title]="modalSprintTitle"
+    [isValid]="sprintFormGroup.valid"
+    [close]="close"
+    [submitButtonText]="submitButtonText"
+    (submit)="saveSprint()">
+    <app-sprint-form [sprintFormGroup]="sprintFormGroup"></app-sprint-form>
+</app-modal>

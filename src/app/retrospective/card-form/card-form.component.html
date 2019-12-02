@@ -1,0 +1,50 @@
+<div class="modal-body">
+  <form [formGroup]="cardFormGroup">
+      <div class="form-group">
+          <label for="recipient-name" class="col-form-label">Type:</label>
+
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm" *ngFor="let selector of selectors">
+                      <div class="workout-type">
+                          <div 
+                              class="workout-type__pane"
+                              [class.active]="selector === cardFormGroup.controls.type.value"
+                              (click)="setSelected(selector)">
+                              <i class="fa mr-2"
+                                  [ngClass]="{'fa-thumbs-down': selector === 'To Improve', 'fa-thumbs-up': selector === 'Went Well', 'fa-bolt': selector === 'Actions'}"></i>
+                              <p>{{ selector }}</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="message-text" class="col-form-label">Title:</label>
+          <input 
+              [ngClass]="{'is-valid': cardFormGroup.controls.title.valid, 
+              'is-invalid': !cardFormGroup.controls.title.valid && cardFormGroup.controls.title.touched }"
+              class="form-control" 
+              id="title-text"
+              formControlName="title"
+              maxlength="20" required />
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                  {{ cardFormGroup.controls.title.value.length }} of 20
+              </small>
+      </div>
+      <div class="form-group">
+          <label for="message-text" class="col-form-label">Message:</label>
+          <textarea 
+              [ngClass]="{'is-valid': cardFormGroup.controls.message.valid, 
+              'is-invalid': !cardFormGroup.controls.message.valid && cardFormGroup.controls.message.touched }"
+              class="form-control" 
+              id="message-text"
+              formControlName="message"
+              maxlength="280" required></textarea>
+              <small id="passwordHelpBlock" class="form-text text-muted">
+                  {{ cardFormGroup.controls.message.value.length }} of 280
+              </small>
+      </div>
+  </form>
+</div>

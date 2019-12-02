@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cards } from './model/retrospective.model';
+import { Sprints } from './model/sprints.model';
 
 @Injectable()
 export class RetrospectiveService {
@@ -13,6 +14,14 @@ export class RetrospectiveService {
 
     saveCard(model: Cards) {
         return this.http.post<Cards>(`http://localhost:3002/api/cards`, model);
+    }
+
+    saveSprint(model: Sprints) {
+        return this.http.post<Sprints>(`http://localhost:3002/api/sprints`, model);
+    }
+
+    updateCard(model: Cards) {
+        return this.http.put<Cards>(`http://localhost:3002/api/cards/${model.code}`, model);
     }
 
     deleteCard(model: Cards) {
