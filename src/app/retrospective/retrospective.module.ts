@@ -10,9 +10,10 @@ import { RetrospectiveService } from './shared/retrospective.service';
 import { SharedModule } from '../shared/shared.module';
 import { CardFormComponent } from './card-form/card-form.component';
 import { SprintFormComponent } from './sprint-form/sprint-form.component';
+import { FilterFormComponent } from './filter-form/filter-form.component';
 
 @NgModule({
-  declarations: [RetrospectiveListComponent, RetrospectiveComponent, CardFormComponent, SprintFormComponent],
+  declarations: [RetrospectiveListComponent, RetrospectiveComponent, CardFormComponent, SprintFormComponent, FilterFormComponent],
   imports: [
     RouterModule,
     HttpClientModule,

@@ -1,4 +1,9 @@
 <div class="row" *ngIf="model && model.length > 0">
+    <div class="col-sm">
+      <h5 class="text-dark mb-4">{{ model[0].embedded.sprint[0].title }}</h5>
+    </div>
+</div>
+<div class="row" *ngIf="model && model.length > 0">
   <div class="col-sm">
     <label class="improvement mb-4">What could be improved</label>
     <div *ngFor="let item of model">

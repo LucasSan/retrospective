@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 import { Cards } from '../shared/model/retrospective.model';
+import { Sprints } from '../shared/model/sprints.model';
 
 @Component({
   selector: 'app-retrospective-list',
@@ -9,6 +10,7 @@ import { Cards } from '../shared/model/retrospective.model';
 export class RetrospectiveListComponent implements OnChanges {
 
   @Input() model: Cards;
+  @Input() sprint: Sprints;
   @Output() editItem: EventEmitter<Cards> = new EventEmitter();
   @Output() deleteItem: EventEmitter<Cards> = new EventEmitter();
 

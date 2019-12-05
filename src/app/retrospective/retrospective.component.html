@@ -1,11 +1,17 @@
 <div class="pt-5">
     <div class="pb-5">
-        <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" [attr.data-target]="'#' + modalCardsFormId" #openModalButton (click)="openModal()">Create New Card</button>
-        <button type="button" class="btn btn-outline-primary float-right mr-3" data-toggle="modal" [attr.data-target]="'#' + modalSprintFormId" (click)="openModal()">Create New Sprint</button>
-        <button type="button" class="btn btn-outline-primary float-right mr-3">Filter</button>
+            <button type="button" class="btn btn-outline-primary float-right" data-toggle="modal" [attr.data-target]="'#' + modalSprintFormId" (click)="openModal()">Create New Sprint</button>
+        <button type="button" class="btn btn-outline-primary float-right mr-3" data-toggle="modal" [attr.data-target]="'#' + modalCardsFormId" #openModalButton (click)="openModal()" [disabled]="disabledCreateNewCard">Create New Card</button>
+        <button type="button" class="btn btn-outline-primary float-right mr-3" data-toggle="modal" [attr.data-target]="'#' + modalFilterFormId" (click)="openModal()">Filter</button>
     </div>
     <div class="pt-5">
-        <app-retrospective-list [model]="model" (editItem)="editItem($event)" (deleteItem)="deleteItem($event)"></app-retrospective-list>
+        <!-- <span>Teste</span> -->
+        <app-retrospective-list
+            [sprint]="itemSprint"
+            [model]="model"
+            (editItem)="editItem($event)"
+            (deleteItem)="deleteItem($event)">
+        </app-retrospective-list>
     </div>
 </div>
 
@@ -20,7 +26,7 @@
     <app-card-form [cardFormGroup]="cardFormGroup"></app-card-form>    
 </app-modal>
 
-<!-- Modal Card Form -->
+<!-- Modal Sprint Form -->
 <app-modal 
     [modalId]="modalSprintFormId"
     [title]="modalSprintTitle"
@@ -29,4 +35,15 @@
     [submitButtonText]="submitButtonText"
     (submit)="saveSprint()">
     <app-sprint-form [sprintFormGroup]="sprintFormGroup"></app-sprint-form>
+</app-modal>
+
+<!-- Modal Filter Form -->
+<app-modal 
+    [modalId]="modalFilterFormId"
+    [title]="modalFilterTitle"
+    [isValid]="filterFormGroup.valid"
+    [close]="close"
+    [submitButtonText]="filterButtonText"
+    (submit)="filterSprint()">
+    <app-filter-form [model]="modelListSprints" [filterFormGroup]="filterFormGroup"></app-filter-form>
 </app-modal>

@@ -1,0 +1,11 @@
+<div class="modal-body">
+    <form [formGroup]="filterFormGroup">
+        <div class="form-group">
+            <label for="message-text" class="col-form-label">Sprint:</label>
+            <select class="form-control" formControlName="sprint" id="exampleFormControlSelect1">
+              <option value="">Select</option>
+              <option *ngFor="let item of model" [ngValue]="item.code">{{ item.title }}</option>
+            </select>
+        </div>
+    </form>
+  </div>

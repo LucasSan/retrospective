@@ -8,8 +8,12 @@ export class RetrospectiveService {
 
     constructor(private http: HttpClient) { }
 
-    getCards(): any {
-        return this.http.get<any>(`http://localhost:3002/api/cards`);
+    getCards(sprintCode?: string): any {
+        return this.http.get<any>(`http://localhost:3002/api/cards?sprint=${sprintCode}`);
+    }
+
+    getSprints(): any {
+        return this.http.get<Sprints>(`http://localhost:3002/api/sprints`);
     }
 
     saveCard(model: Cards) {

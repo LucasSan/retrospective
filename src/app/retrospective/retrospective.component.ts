@@ -4,6 +4,7 @@ import { RetrospectiveService } from './shared/retrospective.service';
 import { first } from 'rxjs/operators';
 import { Cards } from './shared/model/retrospective.model';
 import * as moment from 'moment';
+import { Sprints } from './shared/model/sprints.model';
 
 @Component({
     templateUrl: './retrospective.component.html',
@@ -12,23 +13,38 @@ import * as moment from 'moment';
 export class RetrospectiveComponent implements OnInit {
     cardFormGroup: FormGroup;
     sprintFormGroup: FormGroup;
+    filterFormGroup: FormGroup;
     model = new Array<Cards>();
+    modelListSprints = new Array<Sprints>();
     itemCard: Cards;
+    itemSprint: Sprints;
     modalTitle = 'Create New Card';
     modalSprintTitle = 'Create New Sprint';
     submitButtonText = 'Save';
+    filterButtonText = 'Filter';
     modalCardsFormId = 'modalCardsFormId';
     modalSprintFormId = 'modalSprintFormId';
+    modalFilterFormId = 'modalFilterFormId';
+    modalFilterTitle = 'Filter';
     close = false;
+    disabledCreateNewCard = true;
     @ViewChild('openModalButton') openModalButton: ElementRef;
 
     constructor(private retrospectiveService: RetrospectiveService) {
     }
 
     ngOnInit() {
+        this.listSprints();
         this.listCards();
         this.createCardsForm();
         this.createSprintForm();
+        this.createFilterForm();
+    }
+
+    createFilterForm(): void {
+        this.filterFormGroup = new FormGroup({
+            sprint: new FormControl('', [Validators.required])
+        });
     }
 
     createSprintForm(): void {
@@ -54,25 +70,40 @@ export class RetrospectiveComponent implements OnInit {
         }
     }
 
-    listCards(): void {
+    listCards(sprintCode?: string): void {
         this.retrospectiveService
-            .getCards()
+            .getCards(sprintCode)
             .pipe(first())
             .subscribe(data => {
-                data.forEach(item => item.created = moment(+item.created).fromNow());
-                this.model = data;
+                if (data.embedded.length > 0) {
+                    data.embedded.forEach(item => item.created = moment(+item.created).fromNow());
+                }
+                this.model = data.embedded;
+            });
+    }
+
+    listSprints(): void {
+        this.retrospectiveService
+            .getSprints()
+            .pipe(first())
+            .subscribe((data: Array<Sprints>) => {
+                if (data.length > 0) {
+                    this.disabledCreateNewCard = false;
+                }
+                this.modelListSprints = data;
             });
     }
 
     saveSprint(): void {
-        debugger;
         if (this.sprintFormGroup.valid) {
             this.retrospectiveService.saveSprint({
                 ...this.sprintFormGroup.value
             })
             .pipe(first())
-            .subscribe(() => {
-                debugger;
+            .subscribe((data) => {
+                this.itemSprint = data;
+                this.closeModal();
+                this.disabledCreateNewCard = false;
             });
         }
     }
@@ -80,22 +111,31 @@ export class RetrospectiveComponent implements OnInit {
     saveCard(): void {
         if (this.cardFormGroup.valid && this.submitButtonText === 'Save') {
             this.retrospectiveService.saveCard({
-                ...this.cardFormGroup.value
+                ...this.cardFormGroup.value,
+                sprint: this.filterFormGroup.controls.sprint.value
             })
             .pipe(first())
             .subscribe(() => {
                 this.closeModal();
-                this.listCards();
+                this.listCards(this.filterFormGroup.controls.sprint.value);
             });
         } else if (this.cardFormGroup.valid && this.submitButtonText === 'Edit') {
             this.retrospectiveService.updateCard({
-                ...this.cardFormGroup.value
+                ...this.cardFormGroup.value,
+                sprint: this.filterFormGroup.controls.sprint.value
             })
             .pipe(first())
             .subscribe(() => {
                 this.closeModal();
-                this.listCards();
+                this.listCards(this.filterFormGroup.controls.sprint.value);
             });
+        }
+    }
+
+    filterSprint(): void {
+        if (this.filterFormGroup.valid) {
+            this.listCards(this.filterFormGroup.controls.sprint.value);
+            this.closeModal();
         }
     }
 
@@ -110,7 +150,7 @@ export class RetrospectiveComponent implements OnInit {
             .deleteCard(item)
             .pipe(first())
             .subscribe(data => {
-                this.listCards();
+                this.listCards(this.filterFormGroup.controls.sprint.value);
             });
     }
 

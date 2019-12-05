@@ -5,4 +5,6 @@ export class Cards {
     created: string;
     code: string;
     type: string;
+    sprint: string;
+    embedded: any;
 }
